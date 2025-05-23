@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- main css -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>DDbook</title>
+</head>
+
+<body class="bg-grey">
+    <!--navbar-->
+    <nav class="bg-white d-flex align-items-center fixed-top shadow" style="min-height: 60px; z-index: 5;">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <!--search-->
+                <div class="col d-flex align-items-center">
+                    <!--logo-->
+                    <a href="#">
+                        <i class="fa-solid fa-d text-white fs-2 bg-primary rounded-end-circle p-2 m-1 "></i>
+                    </a>
+                    <!--search bar-->
+                    <div class="input-group ms-2">
+                        <!--mobile-->
+                        <span class="input-group-prepend ms-1 d-lg-none" data-bs-toggle="dropdown" aria-expanded="false"
+                            type="button" data-bs-auto-close="outside"> <!--will converted to search input-->
+                            <div class="input-group-text bg-grey border-0 p-2 rounded-circle" style="min-height: 40px;">
+                                <i class="fa-solid fa-magnifying-glass fs-2 text-muted"></i>
+                            </div>
+                        </span>
+
+                        <!--desktop-->
+                        <span class="input-group-prepend ms-1 d-none d-lg-block" data-bs-toggle="dropdown"
+                            aria-expanded="false" type="button" data-bs-auto-close="outside">
+                            <!--will converted to search input-->
+                            <div class="input-group-text bg-grey border-0 rounded-pill"
+                                style="min-height: 40px; min-width: 230px;">
+                                <i class="fa-solid fa-magnifying-glass me-2 text-muted"></i>
+                                <p class="m-0 fs-7 text-muted">Search DDbook</p>
+                            </div>
+                        </span>
+
+                        <!--search dropdown-->
+                        <ul class="dropdown-menu border-0 shadow p-3 overflow-auto">
+                            <!-- search input -->
+                            <li>
+                                <input type="text" id="searchInput"
+                                    class="rounded-pill border-0 bg-grey mb-2 dropdown-item"
+                                    placeholder="Search DDbook..." autofocus>
+                            </li>
+
+                            <!-- search results -->
+                            <!--result 1-->
+                            <li clas="my-4 ">
+                                <div class="alert fade show dropdown-item p-1 m-0 d-flex align-items-center justify-content-between"
+                                    role="alert">
+                                    <div class="d-flex align-items-center ">
+                                        <img src="https://picsum.photos/50/50" class="rounded-circle me-2" alt="avatar"
+                                            style="width: 35px; height: 35px;">
+                                        <p class="m-0">Dareen Dagher</p>
+                                    </div>
+
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
+                            </li>
+
+                            <!--result 2-->
+                            <li clas="my-4 ">
+                                <div class="alert fade show dropdown-item p-1 m-0 d-flex align-items-center justify-content-between"
+                                    role="alert">
+                                    <div class="d-flex align-items-center ">
+                                        <img src="https://picsum.photos/50/30" class="rounded-circle me-2" alt="avatar"
+                                            style="width: 35px; height: 35px;">
+                                        <p class="m-0">Dareen Dagher</p>
+                                    </div>
+
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
+                            </li>
+
+                            <!--result 3-->
+                            <li clas="my-4 ">
+                                <div class="alert fade show dropdown-item p-1 m-0 d-flex align-items-center justify-content-between"
+                                    role="alert">
+                                    <div class="d-flex align-items-center ">
+                                        <img src="https://picsum.photos/50/20" class="rounded-circle me-2" alt="avatar"
+                                            style="width: 35px; height: 35px;">
+                                        <p class="m-0">Dareen Dagher</p>
+                                    </div>
+
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+                <!--nav-->
+                <div class="col d-none d-lg-flex justify-content-center">
+                    <!-- home -->
+                    <div class="mx-4 nav__btn nav__btn__active">
+                        <button class="btn px-4">
+                            <i class="fa-solid fa-house text-muted fs-4"></i>
+                        </button>
+                    </div>
+                    <!-- video -->
+                    <div class="mx-4 nav__btn">
+                        <button class="btn px-4">
+                            <i class="fa-solid fa-tv text-muted fs-4 position-relative">
+                                <span
+                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                                    style="font-size: 0.5rem;">
+                                    3
+                                    <span class="visually-hidden"></span>
+                                </span>
+                            </i>
+                        </button>
+                    </div>
+
+                    <!-- market -->
+                    <div class="mx-4 nav__btn">
+                        <button class="btn px-4">
+                            <i class="fa-solid fa-store text-muted fs-4"></i>
+                        </button>
+                    </div>
+                    <!-- groups -->
+                    <div class="mx-4 nav__btn">
+                        <button class="btn px-4">
+                            <i class="fa-solid fa-users text-muted fs-4"></i>
+                        </button>
+                    </div>
+                    <!-- gaming -->
+                    <div class="mx-4 nav__btn">
+                        <button class="btn px-4">
+                            <i class="fa-solid fa-gamepad text-muted fs-4"></i>
+                        </button>
+                    </div>
+
+
+                </div>
+                <!--menus-->
+                <div class="col d-flex justify-content-end">
+                    <!-- main menu -->
+                    <div class="d-flex align-items-center justify-content-center p-1 mx-2 bg-grey rounded-circle"
+                        style="height:38px; width:38px; object-fit: cover;" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+
+                    <!-- main menu dropdown -->
+
+                    <ul class="dropdown-menu border-0 shadow p-3 overflow-auto" style="width:23em; max-height: 600px;">
+                        <!-- menu -->
+                        <div>
+                            <!-- header -->
+                            <li class="p-1 mx-2">
+                                <h2>Menu</h2>
+                            </li>
+                            <!-- search -->
+                            <li class="p-1">
+                                <div class="input-group-text bg-grey border-0 rounded-bill"
+                                    style="min-height: 48px; min-width: 230px;">
+                                    <i class="fa-solid fa-magnifying-glass me-2 text-muted"></i>
+                                    <input type="text" class="form-control rounded-pill border-0 bg-grey"
+                                        placeholder="Search Menu">
+                                </div>
+                            </li>
+                            <!-- social items -->
+                            <h4 class="m-2">Social</h4>
+                            <!-- s1 -->
+                            <li class="my-2 p-1">
+                                <a href=""
+                                    class="text-decoration-none text-dark d-flex align-items-center justify-content-between">
+                                    <div class="p-2 me-2" style="width:48px; height:48px;">
+                                        <i class="fa-solid fa-calendar-days fs-3 text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <p class="m-0 fw-bold">Event</p>
+                                        <span class="fs-7 ">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                                            Libero, beatae!</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <!-- s2 -->
+                            <li class="my-2 p-1">
+                                <a href=""
+                                    class="text-decoration-none text-dark d-flex align-items-center justify-content-between">
+                                    <div class="p-2 me-2" style="width:48px; height:48px;">
+                                        <i class="fa-solid fa-user-group fs-3 text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <p class="m-0 fw-bold">Friends</p>
+                                        <span class="fs-7 ">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                                            Libero, beatae!</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <!-- s3 -->
+                            <li class="my-2 p-1">
+                                <a href=""
+                                    class="text-decoration-none text-dark d-flex align-items-center justify-content-between">
+                                    <div class="p-2 me-2" style="width:48px; height:48px;">
+                                        <i class="fa-solid fa-users fs-3 text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <p class="m-0 fw-bold">Groups</p>
+                                        <span class="fs-7 ">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                                            Libero, beatae!</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <!-- s4 -->
+                            <li class="my-2 p-1">
+                                <a href=""
+                                    class="text-decoration-none text-dark d-flex align-items-center justify-content-between">
+                                    <div class="p-2 me-2" style="width:48px; height:48px;">
+                                        <i class="fa-solid fa-newspaper fs-3 text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <p class="m-0 fw-bold">News Feed</p>
+                                        <span class="fs-7 ">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                                            Libero, beatae!</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <!-- s5 -->
+                            <li class="my-2 p-1">
+                                <a href=""
+                                    class="text-decoration-none text-dark d-flex align-items-center justify-content-between">
+                                    <div class="p-2 me-2" style="width:48px; height:48px;">
+                                        <i class="fa-solid fa-calendar-week fs-3 text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <p class="m-0 fw-bold">Feeds</p>
+                                        <span class="fs-7 ">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                                            Libero, beatae!</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <!-- s6 -->
+                            <li class="my-2 p-1">
+                                <a href=""
+                                    class="text-decoration-none text-dark d-flex align-items-center justify-content-between">
+                                    <div class="p-2 me-2" style="width:48px; height:48px;">
+                                        <i class="fa-solid fa-flag fs-3 text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <p class="m-0 fw-bold">Pages</p>
+                                        <span class="fs-7 ">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                                            Libero, beatae!</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <hr>
+                            <!-- entertainment -->
+                            <h4 class="m-2">Entertainment</h4>
+                            <!-- e1 -->
+                            <li class="my-2 p-1">
+                                <a href=""
+                                    class="text-decoration-none text-dark d-flex align-items-center justify-content-between">
+                                    <div class="p-2 me-2" style="width:48px; height:48px;">
+                                        <i class="fa-solid fa-gamepad fs-3 text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <p class="m-0 fw-bold">Play games</p>
+                                        <span class="fs-7 ">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                                            Libero, beatae!</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <!-- e2 -->
+                            <li class="my-2 p-1">
+                                <a href=""
+                                    class="text-decoration-none text-dark d-flex align-items-center justify-content-between">
+                                    <div class="p-2 me-2" style="width:48px; height:48px;">
+                                        <i class="fa-solid fa-gamepad fs-3 text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <p class="m-0 fw-bold">Play games</p>
+                                        <span class="fs-7 ">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                                            Libero, beatae!</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <!-- e3 -->
+                            <li class="my-2 p-1">
+                                <a href=""
+                                    class="text-decoration-none text-dark d-flex align-items-center justify-content-between">
+                                    <div class="p-2 me-2" style="width:48px; height:48px;">
+                                        <i class="fa-solid fa-gamepad fs-3 text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <p class="m-0 fw-bold">Play games</p>
+                                        <span class="fs-7 ">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                                            Libero, beatae!</span>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <hr>
+
+                            <!-- create -->
+                            <div>
+                                <!-- header -->
+                                <li class="p-1 mx-2">
+                                    <h2>Create</h2>
+                                </li>
+                                <!-- c1 -->
+                                <li class="my-2 p-2">
+                                    <a href="#" class="text-decoration-none text-dark d-flex align-items-center">
+                                        <div class="d-flex align-items-center justify-content-center rounded-circle bg-grey p-1 me-3"
+                                            style="width:38px; height:38px;">
+                                            <i class="fa-solid fa-pen-to-square"></i>
+                                        </div>
+                                        <p class="m-0 fw-bold">Post</p>
+                                    </a>
+                                </li>
+                                <!-- c2 -->
+                                <li class="my-2 p-2">
+                                    <a href="#" class="text-decoration-none text-dark d-flex align-items-center">
+                                        <div class="d-flex align-items-center justify-content-center rounded-circle bg-grey p-1 me-3"
+                                            style="width:38px; height:38px;">
+                                            <i class="fa-solid fa-book-open"></i>
+                                        </div>
+                                        <p class="m-0 fw-bold">Story</p>
+                                    </a>
+                                </li>
+                                <!-- c3 -->
+                                <li class="my-2 p-2">
+                                    <a href="#" class="text-decoration-none text-dark d-flex align-items-center">
+                                        <div class="d-flex align-items-center justify-content-center rounded-circle bg-grey p-1 me-3"
+                                            style="width:38px; height:38px;">
+                                            <i class="fa-solid fa-film"></i>
+                                        </div>
+                                        <p class="m-0 fw-bold">Reel</p>
+                                    </a>
+                                </li>
+                                <hr>
+                                <!-- c4 -->
+                                <li class="my-2 p-2">
+                                    <a href="#" class="text-decoration-none text-dark d-flex align-items-center">
+                                        <div class="d-flex align-items-center justify-content-center rounded-circle bg-grey p-1 me-3"
+                                            style="width:38px; height:38px;">
+                                            <i class="fa-solid fa-flag"></i>
+                                        </div>
+                                        <p class="m-0 fw-bold">Page</p>
+                                    </a>
+                                </li>
+                                <!-- c5 -->
+                                <li class="my-2 p-2">
+                                    <a href="#" class="text-decoration-none text-dark d-flex align-items-center">
+                                        <div class="d-flex align-items-center justify-content-center rounded-circle bg-grey p-1 me-3"
+                                            style="width:38px; height:38px;">
+                                            <i class="fa-solid fa-rectangle-ad"></i>
+                                        </div>
+                                        <p class="m-0 fw-bold">Ad</p>
+                                    </a>
+                                </li>
+                                <!-- c6 -->
+                                <li class="my-2 p-2">
+                                    <a href="#" class="text-decoration-none text-dark d-flex align-items-center">
+                                        <div class="d-flex align-items-center justify-content-center rounded-circle bg-grey p-1 me-3"
+                                            style="width:38px; height:38px;">
+                                            <i class="fa-solid fa-users"></i>
+                                        </div>
+                                        <p class="m-0 fw-bold">Group</p>
+                                    </a>
+                                </li>
+                            </div>
+
+
+                        </div>
+
+
+
+
+                    </ul>
+
+                    <!-- chat -->
+                    <div class="rounded-circle p-1 bg-grey d-flex align-items-center justify-content-center mx-2"
+                        style="width: 38px; height: 38px" type="button">
+                        <i class="fa-brands fa-facebook-messenger"></i>
+                    </div>
+
+                    <!-- chat dropdown -->
+
+                    <!-- notification -->
+                    <div class="rounded-circle p-1 bg-grey d-flex align-items-center justify-content-center mx-2 position-relative"
+                        style="width: 38px; height: 38px" type="button">
+                        <i class="fa-solid fa-bell ">
+                            <span class="position-absolute top-0 end-0 badge rounded-pill bg-danger"
+                                style="font-size: 0.5rem;">
+                                1
+                                <span class="visually-hidden"></span>
+                            </span>
+                        </i>
+
+                    </div>
+
+                    <!-- account -->
+                    <div class="position-relative mx-2" type="button" id="accountMenu" data-bs-toggle="dropdown"
+                        aria-expanded="false" data-bs-auto-close="outside">
+                        <img src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                            alt="avatar" class="rounded-circle" style="width: 38px; height: 38px; object-fit:cover">
+                        <div class="position-absolute bg-grey bottom-0 end-0 bg-white rounded-circle d-flex align-items-center justify-content-center shadow"
+                            style="width: 16px; height: 16px;">
+                            <i class="fa-solid fa-chevron-down text-dark" style="font-size: 10px;"></i>
+                        </div>
+                    </div>
+
+                    <!-- account dropdown -->
+                    <ul class="dropdown-menu border-0 shadow p-3" aria-labelledby="accountMenu" style="width: 23em">
+                        <!-- avatar -->
+                        <li class="dropdown-item p-1 rounded d-flex" type="button">
+                            <img src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+                                alt="avatar" class="rounded-circle me-2"
+                                style="width: 45px; height: 45px; object-fit: cover" />
+                            <div>
+                                <p class="m-0">Dareen Dagher</p>
+                                <p class="m-0 text-muted">See your profile</p>
+                            </div>
+                        </li>
+                        <hr />
+                        <!-- options -->
+                        <!-- setting -->
+                        <li class="dropdown-item p-1 my-3 rounded" type="button">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <div class="d-flex" data-bs-toggle="dropdown">
+                                        <i class="fa-solid fa-gear bg-grey p-2 rounded-circle"></i>
+                                        <div class="ms-3 d-flex justify-content-between align-items-center w-100">
+                                            <p class="m-0">Settings & Privacy</p>
+                                            <i class="fa-solid fa-chevron-right"></i>
+                                        </div>
+                                    </div>
+                                    <!-- nested menu -->
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                                <div class=" rounded-circle p-1 bg-grey d-flex align-items-center justify-content-center me-2"
+                                                    style="width: 38px; height: 38px">
+                                                    <i class="fa-solid fa-gear"></i>
+                                                </div>
+                                                <p class="m-0">Settings</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                                <div class=" rounded-circle p-1 bg-grey d-flex align-items-center justify-content-center me-2"
+                                                    style="width: 38px; height: 38px">
+                                                    <i class="fas fa-lock"></i>
+                                                </div>
+                                                <p class="m-0">Privacy Checkup</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                                <div class=" rounded-circle p-1 bg-grey d-flex align-items-center justify-content-center me-2"
+                                                    style="width: 38px; height: 38px">
+                                                    <i class="fas fa-unlock-alt"></i>
+                                                </div>
+                                                <p class="m-0">Privacy Shortcuts</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                                <div class=" rounded-circle p-1 bg-grey d-flex align-items-center justify-content-center me-2"
+                                                    style="width: 38px; height: 38px">
+                                                    <i class="fas fa-list"></i>
+                                                </div>
+                                                <p class="m-0">Activity Log</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                                <div class=" rounded-circle p-1 bg-grey d-flex align-items-center justify-content-center me-2"
+                                                    style="width: 38px; height: 38px">
+                                                    <i class="fas fa-newspaper"></i>
+                                                </div>
+                                                <p class="m-0">News Feed Preferences</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                                <div class=" rounded-circle p-1 bg-grey d-flex align-items-center justify-content-center me-2"
+                                                    style="width: 38px; height: 38px">
+                                                    <i class="fas fa-globe"></i>
+                                                </div>
+                                                <p class="m-0">Language</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- help -->
+                        <li class="dropdown-item p-1 my-3 rounded" type="button">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <div class="d-flex" data-bs-toggle="dropdown">
+                                        <i class="fas fa-question-circle bg-grey p-2 rounded-circle"></i>
+                                        <div class="ms-3 d-flex justify-content-between align-items-center w-100">
+                                            <p class="m-0">Help & Support</p>
+                                            <i class="fa-solid fa-chevron-right"></i>
+                                        </div>
+                                    </div>
+                                    <!-- nested menu -->
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                                <div class=" rounded-circle p-1 bg-grey d-flex align-items-center justify-content-center me-2"
+                                                    style="width: 38px; height: 38px">
+                                                    <i class="fa-solid fa-gear"></i>
+                                                </div>
+                                                <p class="m-0">Settings</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                                <div class=" rounded-circle p-1 bg-grey d-flex align-items-center justify-content-center me-2"
+                                                    style="width: 38px; height: 38px">
+                                                    <i class="fas fa-lock"></i>
+                                                </div>
+                                                <p class="m-0">Privacy Checkup</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                                <div class=" rounded-circle p-1 bg-grey d-flex align-items-center justify-content-center me-2"
+                                                    style="width: 38px; height: 38px">
+                                                    <i class="fas fa-unlock-alt"></i>
+                                                </div>
+                                                <p class="m-0">Privacy Shortcuts</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                                <div class=" rounded-circle p-1 bg-grey d-flex align-items-center justify-content-center me-2"
+                                                    style="width: 38px; height: 38px">
+                                                    <i class="fas fa-list"></i>
+                                                </div>
+                                                <p class="m-0">Activity Log</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                                <div class=" rounded-circle p-1 bg-grey d-flex align-items-center justify-content-center me-2"
+                                                    style="width: 38px; height: 38px">
+                                                    <i class="fas fa-newspaper"></i>
+                                                </div>
+                                                <p class="m-0">News Feed Preferences</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                                <div class=" rounded-circle p-1 bg-grey d-flex align-items-center justify-content-center me-2"
+                                                    style="width: 38px; height: 38px">
+                                                    <i class="fas fa-globe"></i>
+                                                </div>
+                                                <p class="m-0">Language</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- Accessibility -->
+                        <li class="dropdown-item p-1 my-3 rounded" type="button">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <div class="d-flex" data-bs-toggle="dropdown">
+                                        <i class="fas fa-moon bg-grey p-2 rounded-circle"></i>
+                                        <div class=" ms-3 d-flex justify-content-between align-items-center w-100">
+                                            <p class="m-0">Display & Accessibility</p>
+                                            <i class="fa-solid fa-chevron-right"></i>
+                                        </div>
+                                    </div>
+                                    <!-- nested menu -->
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                                <div class=" rounded-circle p-1 bg-grey d-flex align-items-center justify-content-center me-2"
+                                                    style="width: 38px; height: 38px">
+                                                    <i class="fa-solid fa-gear"></i>
+                                                </div>
+                                                <p class="m-0">Settings</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                                <div class=" rounded-circle p-1 bg-grey d-flex align-items-center justify-content-center me-2"
+                                                    style="width: 38px; height: 38px">
+                                                    <i class="fas fa-lock"></i>
+                                                </div>
+                                                <p class="m-0">Privacy Checkup</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                                <div class=" rounded-circle p-1 bg-grey d-flex align-items-center justify-content-center me-2"
+                                                    style="width: 38px; height: 38px">
+                                                    <i class="fas fa-unlock-alt"></i>
+                                                </div>
+                                                <p class="m-0">Privacy Shortcuts</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                                <div class=" rounded-circle p-1 bg-grey d-flex align-items-center justify-content-center me-2"
+                                                    style="width: 38px; height: 38px">
+                                                    <i class="fas fa-list"></i>
+                                                </div>
+                                                <p class="m-0">Activity Log</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                                <div class=" rounded-circle p-1 bg-grey d-flex align-items-center justify-content-center me-2"
+                                                    style="width: 38px; height: 38px">
+                                                    <i class="fas fa-newspaper"></i>
+                                                </div>
+                                                <p class="m-0">News Feed Preferences</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item d-flex align-items-center" href="#">
+                                                <div class=" rounded-circle p-1 bg-grey d-flex align-items-center justify-content-center me-2"
+                                                    style="width: 38px; height: 38px">
+                                                    <i class="fas fa-globe"></i>
+                                                </div>
+                                                <p class="m-0">Language</p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- feedback -->
+                        <li class="dropdown-item p-1 rounded d-flex align-items-center" type="button">
+                            <i class="fas fa-exclamation-circle bg-grey p-2 rounded-circle"></i>
+                            <div class="ms-3">
+                                <p class="m-0">Give Feedback</p>
+                                <p class="m-0 text-muted fs-7">
+                                    Help us improve the new Flexbook.
+                                </p>
+                            </div>
+                        </li>
+                        <!-- log out-->
+                        <li class="dropdown-item p-1 my-3 rounded" type="button">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a href="./index.html" class="d-flex text-decoration-none text-dark">
+                                        <i class="fa-solid fa-right-from-bracket bg-grey p-2 rounded-circle"></i>
+                                        <div class="ms-3 d-flex justify-content-between align-items-center w-100">
+                                            <p class="m-0">Log Out</p>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!--Bootstrap JS -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!--main js -->
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

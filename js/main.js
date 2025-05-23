@@ -4,19 +4,44 @@ const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstra
 
 
 //gender custom
-if(window.location.pathname === '/'){ //only on index page
+if (window.location.pathname === '/') { //only on index page
     const femaleBtn = document.querySelector('#female');
     const maleBtn = document.querySelector('#male');
     const customBtn = document.querySelector('#custom');
     const genderCustom = document.querySelector('#gender-custom');
 
-    femaleBtn.addEventListener('change', function() {
+    femaleBtn.addEventListener('change', function () {
         genderCustom.classList.add('d-none');
     });
-    maleBtn.addEventListener('change', function() {
+    maleBtn.addEventListener('change', function () {
         genderCustom.classList.add('d-none');
     });
-    customBtn.addEventListener('change', function() {
+    customBtn.addEventListener('change', function () {
         genderCustom.classList.remove('d-none');
     });
 }
+
+//focus on search input
+
+document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.getElementById('searchInput');
+
+    document.querySelectorAll('[data-bs-toggle="dropdown"]').forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            setTimeout(() => {
+                searchInput.focus();
+            }, 200);
+        });
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
