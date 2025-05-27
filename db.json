@@ -1,0 +1,31 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Dareen Dagher",
+      "email": "dareen@example.com",
+      "password": "123456",
+      "avatar": "https://images.unsplash.com/photo-1592194996308-7b43878e84a6",
+      "createdAt": "2025-01-01T00:00:00Z"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "userId": 1,
+      "content": "This is my first post!",
+      "image": "https://picsum.photos/600/400?random=1",
+      "likes": 5,
+      "createdAt": "2025-05-25T10:00:00Z"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "postId": 1,
+      "userId": 1,
+      "content": "This is a sample comment!",
+      "createdAt": "2025-05-25T10:05:00Z"
+    }
+  ]
+}
