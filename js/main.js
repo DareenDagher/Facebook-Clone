@@ -133,7 +133,7 @@ async function fetchPosts() {
 }
 
 // generate HTML for a single post
-function createPostHTML(post) {
+function createPostHTML(post,currentUser) {
     return `
         <div class="bg-white p-4 rounded shadow mt-3">
             <!-- user -->
@@ -235,7 +235,7 @@ function createPostHTML(post) {
                                     <form class="d-flex my-1 comment-form" data-post-id="${post.id}">
                                         <!-- avatar -->
                                         <div>
-                                            <img src="${post.user.avatar}" 
+                                            <img src="${currentUser.avatar}" 
                                                 alt="avatar" class="rounded-circle me-2"
                                                 style="width: 38px; height: 38px; object-fit: cover;" />
                                         </div>
@@ -259,10 +259,11 @@ function createPostHTML(post) {
 
 // display all posts
 async function displayPosts() {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     const posts = await fetchPosts();
     const postsList = document.getElementById('postsList');
 
-    postsList.innerHTML = posts.map(post => createPostHTML(post)).join('');
+    postsList.innerHTML = posts.map(post => createPostHTML(post, currentUser)).join('');
 
 }
 

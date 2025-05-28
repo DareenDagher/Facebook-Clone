@@ -6,6 +6,20 @@
       "email": "dareen@example.com",
       "password": "123456",
       "avatar": "https://images.unsplash.com/photo-1592194996308-7b43878e84a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
+    },
+    {
+      "id": "2",
+      "name": "Nour",
+      "email": "nour@example.com",
+      "password": "123456",
+      "avatar": "https://i.pinimg.com/736x/93/56/cd/9356cd65df3648af29e0a023871b7be2.jpg"
+    },
+    {
+      "id": "3",
+      "name": "Neamat",
+      "email": "neamat@example.com",
+      "password": "123456",
+      "avatar": "https://i.pinimg.com/736x/2f/4c/85/2f4c8591958f1843cbad434817c6888a.jpg"
     }
   ],
   "posts": [
@@ -15,6 +29,20 @@
       "content": "This is my first post!",
       "image": "https://picsum.photos/600/400?random=99",
       "likes": 13
+    },
+    {
+      "id": "2",
+      "userId": 2,
+      "content": "This is my first post!",
+      "image": "https://picsum.photos/600/400?random=1",
+      "likes": 24
+    },
+    {
+      "id": "3",
+      "userId": 3,
+      "content": "This is my first post!",
+      "image": "https://picsum.photos/600/400?random=2",
+      "likes": 8
     }
   ],
   "comments": [
@@ -22,6 +50,18 @@
       "id": "1",
       "postId": 1,
       "userId": 1,
+      "content": "This is a sample comment!"
+    },
+    {
+      "id": "2",
+      "postId": 1,
+      "userId": 2,
+      "content": "This is a sample comment!"
+    },
+    {
+      "id": "3",
+      "postId": 2,
+      "userId": 3,
       "content": "This is a sample comment!"
     }
   ]
