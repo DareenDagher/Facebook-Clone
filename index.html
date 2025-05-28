@@ -28,11 +28,15 @@
         </header>
 
         <!-- form -->
-         <div class="mx-auto">
-        <form  class="  bg-white shadow rounded p-3 input-group-lg" style="width: 28rem;">
-                <input type="text" class="form-control my-3" placeholder="Email or phone number" required>
-                <input type="password" class="form-control my-3" placeholder="Password" required>
-                <a href="./home.html" class=" btn btn-primary w-100 my-3">Log in</a>
+        <div class="mx-auto">
+            <form id="loginForm" class="bg-white shadow rounded p-3 input-group-lg" style="width: 28rem;">
+                <input type="text" id="loginEmail" value="dareen@example.com" class="form-control my-3"
+                    placeholder="Email or phone number" required>
+                <input type="password" id="loginPassword" value="123456" class="form-control my-3"
+                    placeholder="Password" required>
+                <!-- <a href="./home.html" class=" btn btn-primary w-100 my-3">Log in</a> -->
+                <button type="submit" class="btn btn-primary w-100 my-3">Log in</button>
+
 
                 <a href="#" class=" text-center text-decoration-none">
                     <p>Forgotten password?</p>
@@ -44,7 +48,10 @@
                         new account</a>
                 </div>
 
+            </form>
+
             <!-- Modal -->
+
             <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -61,7 +68,7 @@
                         <!-- Modal Body -->
                         <div class="modal-body">
                             <!-- Form -->
-                            <form>
+                            <form id="registerForm">
                                 <!-- Name -->
                                 <div class="row">
                                     <div class="col">
@@ -127,7 +134,7 @@
                                             <input class="form-check-input" type="radio" name="gender" id="custom">
                                         </div>
                                     </div>
-                                     
+
                                 </div>
                                 <!--gender custom-->
                                 <div class="d-none" id="gender-custom">
@@ -139,10 +146,10 @@
                                     </select>
                                     <div>
                                         <span class="text-muted fs-7">Your pronoun is visible to everyone.</span>
-                                        <input type="text" class="form-control mt-2" placeholder="Gender (optional)"/>
+                                        <input type="text" class="form-control mt-2" placeholder="Gender (optional)" />
 
                                     </div>
-                                    
+
                                 </div>
 
                                 <!--email & password-->
@@ -151,7 +158,8 @@
                                 <input type="password" class="form-control my-3" placeholder="New password" required>
 
                                 <!-- disclaimer -->
-                                <span class="text-muted fs-7">People who use our service may have uploaded your contact
+                                <span class="text-muted fs-7">People who use our service may have uploaded your
+                                    contact
                                     information to Facebook.</span>
                                 <!-- btn -->
                                 <div class="text-center">
@@ -167,11 +175,11 @@
                 </div>
             </div>
 
-            
-     
-            
-        </form>
-        <!--tag-->
+
+
+
+            </form>
+            <!--tag-->
             <div class="my-5 pb-5 text-center">
                 <p>
                     <a class="text-decoration-none text-dark fw-bold" href="#">Create a Page </a><span>for a celebrity,
@@ -196,8 +204,8 @@
                 <p class="mx-2 mb-0 fs-7">Türkçe</p>
                 <p class="mx-2 mb-0 fs-7">हिन्दी</p>
             </div>
-            <hr/>
-            
+            <hr />
+
             <!--actions-->
             <div class="d-flex flex-wrap">
                 <p class="mx-2 mb-0 fs-7">Sign Up</p>

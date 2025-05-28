@@ -382,13 +382,7 @@
                                     </a>
                                 </li>
                             </div>
-
-
                         </div>
-
-
-
-
                     </ul>
 
                     <!-- chat -->
@@ -689,11 +683,13 @@
 
 
             <!-- =========================== timeline =========================== -->
+
             <div class="col-12 col-lg-6 pb-5 mx-auto">
                 <div class="d-flex flex-column justify-content-center w-100 mx-auto"
                     style="padding-top: 56px; max-width: 680px">
 
-                    <!-- create post -->
+                    
+                        <!-- create post -->
                     <div class="bg-white p-3 mt-3 rounded border shadow">
 
                         <!-- avatar -->
@@ -805,163 +801,24 @@
                             </div>
                         </div>
                     </div>
+                    
 
-                    <!-- posts -->
-                    <!-- p 1 -->
-                    <div class="bg-white p-4 rounded shadow mt-3">
-                        <!-- author -->
-                        <div class="d-flex justify-content-between">
-                            <!-- avatar -->
-                            <div class="d-flex">
-                                <img src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
-                                    alt="avatar" class="rounded-circle me-2"
-                                    style="width: 38px; height: 38px; object-fit: cover" />
-                                <div>
-                                    <p class="m-0 fw-bold">Dareen Dagher</p>
-                                    <span class="text-muted fs-7">May 25 at 5:25 am</span>
-                                </div>
-                            </div>
-                            <!-- edit -->
-                            <i class="fas fa-ellipsis-h" type="button" id="post1Menu" data-bs-toggle="dropdown"
-                                aria-expanded="false"></i>
-                            <!-- edit menu -->
-                            <ul class="dropdown-menu border-0 shadow" aria-labelledby="post1Menu">
-                                <li class="d-flex align-items-center">
-                                    <a class=" dropdown-item d-flex justify-content-around align-items-center fs-7"
-                                        href="#">
-                                        Edit Post
-                                    </a>
-                                </li>
-                                <li class="d-flex align-items-center">
-                                    <a class=" dropdown-item d-flex justify-content-around align-items-center fs-7"
-                                        href="#">
-                                        Delete Post
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- post content -->
-                        <div class="mt-3">
-                            <!-- content -->
-                            <div>
-                                <p>
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                                    Quae fuga incidunt consequatur tenetur doloremque officia
-                                    corrupti provident tempore vitae labore?
-                                </p>
-                                <img src="https://picsum.photos/600/400?random=1" alt="post image"
-                                    class="img-fluid rounded" />
-                            </div>
-                            <!-- likes & comments -->
-                            <div class="post__comment mt-3 position-relative">
-                                <!-- likes -->
-                                <div class=" d-flex align-items-center top-0 start-0 position-absolute"
-                                    style="height: 50px; z-index: 5">
-                                    <div class="me-2">
-                                        <i class="text-primary fas fa-thumbs-up"></i>
-                                        <i class="text-danger fab fa-gratipay"></i>
-                                        <i class="text-warning fas fa-grin-squint"></i>
-                                    </div>
-                                    <p class="m-0 text-muted fs-7">Nour, Neamat, and 3 others</p>
-                                </div>
-                                <!-- comments start-->
-                                <div class="accordion" id="accordionExample">
-                                    <div class="accordion-item border-0">
-                                        <!-- comment collapse -->
-                                        <h2 class="accordion-header" id="headingTwo">
-                                            <div class=" accordion-button collapsed pointer d-flex justify-content-end"
-                                                data-bs-toggle="collapse" data-bs-target="#collapsePost1"
-                                                aria-expanded="false" aria-controls="collapsePost1">
-                                                <p class="m-0">2 Comments</p>
-                                            </div>
-                                        </h2>
-                                        <hr />
-                                        <!-- comment & like bar -->
-                                        <div class="d-flex justify-content-around">
-                                            <div
-                                                class=" dropdown-item rounded d-flex justify-content-center align-items-center pointer text-muted p-1">
-                                                <i class="fas fa-thumbs-up me-3"></i>
-                                                <p class="m-0">Like</p>
-                                            </div>
-                                            <div class=" dropdown-item rounded d-flex justify-content-center align-items-center pointer text-muted p-1"
-                                                data-bs-toggle="collapse" data-bs-target="#collapsePost1"
-                                                aria-expanded="false" aria-controls="collapsePost1">
-                                                <i class="fas fa-comment-alt me-3"></i>
-                                                <p class="m-0">Comment</p>
-                                            </div>
-                                        </div>
-                                        <!-- comment expand -->
-                                        <div id="collapsePost1" class="accordion-collapse collapse"
-                                            aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                                            <hr />
-                                            <div class="accordion-body">
-                                                <!-- comment 1 -->
-                                                <div class="d-flex align-items-center my-1">
-                                                    <!-- avatar -->
-                                                    <img src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
-                                                        alt="avatar" class="rounded-circle me-2"
-                                                        style=" width: 38px; height: 38px; object-fit: cover;" />
-                                                    <!-- comment text -->
-                                                    <div class="p-3 rounded comment__input w-100 bg-grey">
-                                                        <p class="fw-bold m-0">Dareen Dagher</p>
-                                                        <p class="m-0 fs-7  p-2 rounded">
-                                                            Lorem ipsum dolor sit amet, consectetur
-                                                            adipiscing elit.
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <!-- comment 2 -->
-                                                <div class="d-flex align-items-center my-1">
-                                                    <!-- avatar -->
-                                                    <img src="https://i.pinimg.com/736x/87/9f/ea/879fea0a855cee5255343f03ec2190aa.jpg"
-                                                        alt="avatar" class="rounded-circle me-2"
-                                                        style=" width: 38px; height: 38px; object-fit: cover;" />
-                                                    <!-- comment text -->
-                                                    <div class="p-3 rounded comment__input w-100 bg-grey">
-                                                        <p class="fw-bold m-0">Neamat</p>
-                                                        <p class="m-0 fs-7 bg-grey p-2 rounded">
-                                                            Lorem ipsum dolor sit amet, consectetur
-                                                            adipiscing elit.
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <!-- create comment -->
-                                                <form class="d-flex my-1">
-                                                    <!-- avatar -->
-                                                    <div>
-                                                        <img src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
-                                                            alt="avatar" class="rounded-circle me-2"
-                                                            style=" width: 38px; height: 38px; object-fit: cover;" />
-                                                    </div>
-                                                    <!-- input -->
-                                                    <input type="text"
-                                                        class="form-control border-0 rounded-pill bg-grey"
-                                                        placeholder="Write a comment" />
-                                                </form>
-                                                <!-- end -->
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- end -->
-                            </div>
-                        </div>
-
+                    <!-- Posts List (سيتم ملؤها ديناميكياً) -->
+                    <div id="postsList">
+                        <!-- سيتم إضافة المنشورات هنا -->
                     </div>
-                    <!-- p 2 -->
-
-
-
-
+                    
                 </div>
-
-                <!-- =========================== chatbar =========================== -->
-
-
-
             </div>
-        </div>
 
+
+            <!-- End of Timeline Section -->
+
+
+            <!-- =========================== chatbar =========================== -->
+
+        </div>
+    </div>
 
         <!-- Bootstrap JS -->
         <script src="js/bootstrap.bundle.min.js"></script>
