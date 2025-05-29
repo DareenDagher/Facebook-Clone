@@ -2,7 +2,7 @@
 // Initialize App
 document.addEventListener('DOMContentLoaded', function () {
     // Check login
-    const currentUser = localStorage.getItem('currentUser');
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     if (!currentUser && window.location.pathname.includes('home.html')) {
         window.location.href = 'index.html';
         return;
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
         setupGenderSelection();
     }
     else if (window.location.pathname.includes('home.html')) {
-        displayPosts();
+        displayPosts(currentUser);
     }
 
     setupSearchFocus();
@@ -107,20 +107,20 @@ async function fetchPosts() {
 
     // Fetch related data for each post
     for (const post of posts) {
- 
+
         const postUser = await fetchUser(post.userId);
         const postComments = await fetchComments(post.id);
-        
+
         // comments with user data
         const commentsWithUsers = [];
         for (const comment of postComments) {
-            const commentUser = await fetchUser(comment.userId); 
+            const commentUser = await fetchUser(comment.userId);
             commentsWithUsers.push({
                 ...comment,        //spread all comment properties -> id,content
                 user: commentUser  // add user object to the comment
             });
         }
-        
+
         //collect data in one object
         completePosts.push({
             ...post,    // include all original post data
@@ -128,12 +128,12 @@ async function fetchPosts() {
             comments: commentsWithUsers, //add comments with its users
         });
     }
-    
+
     return completePosts;
 }
 
 // generate HTML for a single post
-function createPostHTML(post,currentUser) {
+function createPostHTML(post, currentUser) {
     return `
         <div class="bg-white p-4 rounded shadow mt-3">
             <!-- user -->
@@ -258,13 +258,86 @@ function createPostHTML(post,currentUser) {
 }
 
 // display all posts
-async function displayPosts() {
-    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+async function displayPosts(currentUser) {
     const posts = await fetchPosts();
     const postsList = document.getElementById('postsList');
 
     postsList.innerHTML = posts.map(post => createPostHTML(post, currentUser)).join('');
 
+    // Add event listeners after dispaly
+    addEventListeners(currentUser);
 }
 
+// handle like
+async function handleLike(postId,currentUser) {
+    // Fetch current post
+    const response = await fetch(`http://localhost:3001/posts/${postId}`);
 
+    const post = await response.json();
+
+    // Update likes count
+    const updatedPost = {
+        ...post,
+        likes: post.likes + 1
+    };
+
+    // Send PUT request
+    const updateResponse = await fetch(`http://localhost:3001/posts/${postId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(updatedPost)
+    });
+
+    // Refresh posts
+    displayPosts(currentUser);
+}
+
+//handle comment
+async function handleComment(postId, content, currentUser) {
+
+    // Create new comment
+    const newComment = {
+        postId: parseInt(postId),
+        userId: currentUser.id,
+        content: content,
+        createdAt: new Date().toISOString()
+    };
+
+    // Send POST request
+    const response = await fetch('http://localhost:3001/comments', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newComment)
+    });
+
+    // Refresh posts
+    displayPosts(currentUser);
+}
+
+// Add event listeners
+function addEventListeners(currentUser) {
+    // Like buttons
+    document.querySelectorAll('.like-btn').forEach(button => {
+        button.addEventListener('click', (e) => {
+            console.log(e.currentTarget);
+            const postId = e.currentTarget.getAttribute('data-post-id');
+            handleLike(postId, currentUser);
+        });
+    });
+
+    // Comment forms
+    document.querySelectorAll('.comment-form').forEach(form => {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const postId = e.currentTarget.getAttribute('data-post-id');
+            const content = e.currentTarget.comment.value;
+            handleComment(postId, content, currentUser);
+            e.currentTarget.comment.value = '';
+
+        });
+    });
+}

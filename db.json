@@ -28,21 +28,21 @@
       "userId": 1,
       "content": "This is my first post!",
       "image": "https://picsum.photos/600/400?random=99",
-      "likes": 13
+      "likes": 20
     },
     {
       "id": "2",
       "userId": 2,
       "content": "This is my first post!",
       "image": "https://picsum.photos/600/400?random=1",
-      "likes": 24
+      "likes": 33
     },
     {
       "id": "3",
       "userId": 3,
       "content": "This is my first post!",
       "image": "https://picsum.photos/600/400?random=2",
-      "likes": 8
+      "likes": 21
     }
   ],
   "comments": [
@@ -63,6 +63,20 @@
       "postId": 2,
       "userId": 3,
       "content": "This is a sample comment!"
+    },
+    {
+      "id": "3801",
+      "postId": 2,
+      "userId": 1,
+      "content": "hhh",
+      "createdAt": "2025-05-28T23:15:20.470Z"
+    },
+    {
+      "id": "4064",
+      "postId": 1,
+      "userId": "1",
+      "content": "thanks",
+      "createdAt": "2025-05-29T18:44:02.573Z"
     }
   ]
 }
