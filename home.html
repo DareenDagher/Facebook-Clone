@@ -688,8 +688,8 @@
                 <div class="d-flex flex-column justify-content-center w-100 mx-auto"
                     style="padding-top: 56px; max-width: 680px">
 
-                    
-                        <!-- create post -->
+
+                    <!-- create post -->
                     <div class="bg-white p-3 mt-3 rounded border shadow">
 
                         <!-- avatar -->
@@ -704,7 +704,7 @@
                                 data-bs-target="#createModal" />
                         </div>
 
-                        <!-- create modal -->
+                        <!-- create post modal -->
                         <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel"
                             aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
@@ -718,63 +718,77 @@
                                             aria-label="Close"></button>
                                     </div>
                                     <!-- body -->
-                                    <div class="modal-body">
-                                        <div class="my-1 p-1">
-                                            <div class="d-flex flex-column">
-                                                <!-- name -->
-                                                <div class="d-flex align-items-center">
-                                                    <div class="p-2">
-                                                        <img src="https://images.unsplash.com/photo-1592194996308-7b43878e84a6?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80"
-                                                            alt="from fb" class="rounded-circle"
-                                                            style="width: 38px; height: 38px; object-fit: cover" />
+                                    <form id="addPostForm">
+                                        <div class="modal-body">
+                                            <div class="my-1 p-1">
+                                                <div class="d-flex flex-column">
+                                                    <!-- user -->
+                                                    <div class="d-flex align-items-center mb-2">
+                                                        <div class="p-2">
+                                                            <img id="currentUserAvatar" src="" alt="avatar"
+                                                                class="rounded-circle"
+                                                                style="width: 38px; height: 38px; object-fit: cover" />
+                                                        </div>
+                                                        <div>
+                                                            <p id="currentUserName" class="m-0 fw-bold"></p>
+                                                                <select class="form-select border-0 bg-grey w-100 fs-7"
+                                                                    aria-label="Default select example">
+                                                                    <option selected value="public">Public</option>
+                                                                    <option value="friends">Friends</option>
+                                                                    <option value="only me">Only Me</option>
+                                                                </select>
+                                                        </div>
                                                     </div>
+                                                    <!-- post content -->
                                                     <div>
-                                                        <p class="m-0 fw-bold">Dareen Dagher</p>
-                                                        <select class="form-select border-0 bg-grey w-75 fs-7"
-                                                            aria-label="Default select example">
-                                                            <option selected value="1">Public</option>
-                                                            <option value="2">Pin To Top</option>
-                                                            <option value="3">Hide</option>
-                                                        </select>
+                                                        <textarea id="postContent" cols="30" rows="5"
+                                                            class="form-control border-0"
+                                                            placeholder="What's on your mind?" required>
+                                                        </textarea>
                                                     </div>
-                                                </div>
-                                                <!-- text -->
-                                                <div>
-                                                    <textarea cols="30" rows="5"
-                                                        class="form-control border-0"></textarea>
-                                                </div>
-                                                <!-- emoji  -->
-                                                <div class=" d-flex justify-content-between align-items-center">
-                                                    <img src="https://img.icons8.com/fluency/48/000000/text-color.png"
-                                                        class="pointer" alt="fb text"
-                                                        style=" width: 30px; height: 30px; object-fit: cover;" />
-                                                    <i class="far fa-laugh-wink fs-5 text-muted pointer"></i>
-                                                </div>
-                                                <!-- options -->
-                                                <div
-                                                    class=" d-flex justify-content-between border border-1 border-light rounded p-3 mt-3">
-                                                    <p class="m-0">Add to your post</p>
-                                                    <div>
-                                                        <i class=" fas fa-images fs-5 text-success pointer mx-1"></i>
-                                                        <i
-                                                            class=" fas fa-user-check fs-5 text-primary pointer mx-1"></i>
-                                                        <i class=" far fa-smile fs-5 text-warning pointer mx-1"></i>
-                                                        <i
-                                                            class=" fas fa-map-marker-alt fs-5 text-info pointer mx-1"></i>
-                                                        <i class=" fas fa-microphone fs-5 text-danger pointer mx-1"></i>
-                                                        <i class=" fas fa-ellipsis-h fs-5 text-muted pointer mx-1"></i>
+                                                    <!-- emoji  -->
+                                                    <div class=" d-flex justify-content-between align-items-center">
+                                                        <img src="https://img.icons8.com/fluency/48/000000/text-color.png"
+                                                            class="pointer" alt="fb text"
+                                                            style=" width: 30px; height: 30px; object-fit: cover;" />
+                                                        <i class="far fa-laugh-wink fs-5 text-muted pointer"></i>
+                                                    </div>
+                                                    <!-- options -->
+                                                    <div
+                                                        class=" d-flex justify-content-between border border-1 border-light rounded p-3 mt-3">
+                                                        <p class="m-0">Add to your post</p>
+                                                        <div>
+                                                            <button type="button" class="btn p-1">
+                                                                <i class=" fas fa-images fs-5 text-success"></i>
+                                                            </button>
+                                                            <button type="button" class="btn p-1">
+                                                                <i class=" fas fa-user-check fs-5 text-primary"></i>
+                                                            </button>
+                                                            <button type="button" class="btn p-1">
+                                                                <i class=" far fa-smile fs-5 text-warning"></i>
+                                                            </button>
+                                                            <button type="button" class="btn p-1">
+                                                                <i class=" fas fa-map-marker-alt fs-5 text-info"></i>
+                                                            </button>
+                                                            <button type="button" class="btn p-1">
+                                                                <i class=" fas fa-microphone fs-5 text-danger"></i>
+                                                            </button>
+                                                            <button type="button" class="btn p-1">
+                                                                <i class=" fas fa-ellipsis-h fs-5 text-muted"></i>
+                                                            </button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <!-- end -->
                                         </div>
-                                        <!-- end -->
-                                    </div>
-                                    <!-- footer -->
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary w-100">
-                                            Post
-                                        </button>
-                                    </div>
+                                        <!-- footer -->
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-primary w-100" data-bs-dismiss="modal">
+                                                Post
+                                            </button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -801,25 +815,23 @@
                             </div>
                         </div>
                     </div>
-                    
-                   
+
                     <div id="postsList">
                         <!-- dynamic pots -->
                     </div>
-                    
+
                 </div>
             </div>
-
 
             <!-- =========================== chatbar =========================== -->
 
         </div>
     </div>
 
-        <!-- Bootstrap JS -->
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <!-- main js -->
-        <script src="js/main.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- main js -->
+    <script src="js/main.js"></script>
 
 </body>
 

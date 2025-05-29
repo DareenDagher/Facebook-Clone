@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     else if (window.location.pathname.includes('home.html')) {
         displayPosts(currentUser);
+        handleAddPostForm(currentUser);
     }
 
     setupSearchFocus();
@@ -269,7 +270,7 @@ async function displayPosts(currentUser) {
 }
 
 // handle like
-async function handleLike(postId,currentUser) {
+async function handleLike(postId, currentUser) {
     // Fetch current post
     const response = await fetch(`http://localhost:3001/posts/${postId}`);
 
@@ -339,5 +340,49 @@ function addEventListeners(currentUser) {
             e.currentTarget.comment.value = '';
 
         });
+    });
+}
+
+// add post
+async function addPost(content, currentUser) {
+    const newPost = {
+        userId: parseInt(currentUser.id),
+        content: content,
+        image: "https://picsum.photos/600/400?random=" + Math.floor(Math.random() * 1000),
+        likes: 0
+    };
+
+    const response = await fetch('http://localhost:3001/posts', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newPost)
+    });
+
+    displayPosts(currentUser);
+
+}
+
+// handle add post form
+function handleAddPostForm(currentUser) {
+    const form = document.getElementById('addPostForm');
+
+    // current user info to the form
+    const avatar = document.getElementById('currentUserAvatar');
+    const name = document.getElementById('currentUserName');
+
+    avatar.src = currentUser.avatar;
+    name.textContent = currentUser.name;
+
+
+    // Handle form submission
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const content = document.getElementById('postContent').value;
+        const success = await addPost(content, currentUser);
+        form.reset();
+
     });
 }
