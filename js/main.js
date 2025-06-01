@@ -80,8 +80,25 @@ function setupLogin() {
         }
 
         localStorage.setItem('currentUser', JSON.stringify(users[0]));
+        updateUserUI(users[0]);
         window.location.href = 'home.html';
     });
+}
+
+//update user UI
+function updateUserUI(currentUser) {
+
+    const navAvatar = document.getElementById('navUserAvatar');
+    const dropdownAvatar = document.getElementById('dropdownUserAvatar');
+    const dropdownName = document.getElementById('dropdownUserName');
+    const mainAvatar = document.getElementById('currentUserMainAvatar');
+    const postInput = document.getElementById('postInputPlaceholder');
+
+    navAvatar.src = currentUser.avatar;
+    dropdownAvatar.src = currentUser.avatar;
+    dropdownName.textContent = currentUser.name;
+    mainAvatar.src = currentUser.avatar;
+    postInput.placeholder = `What's on your mind, ${currentUser.name.split(' ')[0]}?`;
 }
 
 // fetch a user by ID
@@ -275,6 +292,7 @@ function createPostHTML(post, currentUser) {
 
 // display all posts
 async function displayPosts(currentUser) {
+    updateUserUI(currentUser);
     const posts = await fetchPosts();
     const postsList = document.getElementById('postsList');
 
