@@ -100,10 +100,21 @@ async function fetchComments(postId) {
 
 }
 
+//format date
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    const options = { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+    return date.toLocaleDateString('en-US', options).replace(',', ' at');
+}
+
 // fetch posts 
 async function fetchPosts() {
+    //const response = await fetch('http://localhost:3001/posts?_sort=createdAt&_order=desc');
     const response = await fetch('http://localhost:3001/posts');
     const posts = await response.json();
+
+    // manual sorting
+    posts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
     const completePosts = [];
 
@@ -128,6 +139,8 @@ async function fetchPosts() {
             ...post,    // include all original post data
             user: postUser, // add user who wrote the post
             comments: commentsWithUsers, //add comments with its users
+            formattedDate: formatDate(post.createdAt),
+            likes: post.likes
         });
     }
 
@@ -147,6 +160,7 @@ function createPostHTML(post, currentUser) {
                         style="width: 38px; height: 38px; object-fit: cover" />
                     <div>
                         <p class="m-0 fw-bold">${post.user.name}</p>
+                        <span class="text-muted fs-7">${post.formattedDate}</span>
                     </div>
                 </div>
                 <!-- edit -->
@@ -350,7 +364,8 @@ async function addPost(content, currentUser) {
         userId: parseInt(currentUser.id),
         content: content,
         image: "https://picsum.photos/600/400?random=" + Math.floor(Math.random() * 1000),
-        likes: 0
+        likes: 0,
+        createdAt: new Date().toISOString()
     };
 
     const response = await fetch('http://localhost:3001/posts', {
@@ -452,13 +467,13 @@ function setupGeminiChat(currentUser) {
         chatMessages.scrollTop = chatMessages.scrollHeight;
 
         // Get response from Gemini
-            const geminiResponse = await chatWithGemini(userMessage);
+        const geminiResponse = await chatWithGemini(userMessage);
 
-            // Remove typing indicator
-            chatMessages.removeChild(typingIndicator);
+        // Remove typing indicator
+        chatMessages.removeChild(typingIndicator);
 
-            // Add Gemini's response
-            addMessageToChat('Gemini', geminiResponse, true);
+        // Add Gemini's response
+        addMessageToChat('Gemini', geminiResponse, true);
     });
 }
 

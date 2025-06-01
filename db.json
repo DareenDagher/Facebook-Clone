@@ -28,63 +28,48 @@
       "userId": 1,
       "content": "This is my first post!",
       "image": "https://picsum.photos/600/400?random=99",
-      "likes": 21
+      "likes": 28,
+      "createdAt": "2021-05-28T23:15:20.470Z"
     },
     {
       "id": "2",
       "userId": 2,
       "content": "This is my first post!",
       "image": "https://picsum.photos/600/400?random=1",
-      "likes": 33
+      "likes": 33,
+      "createdAt": "2021-07-28T23:15:20.470Z"
     },
     {
       "id": "3",
       "userId": 3,
       "content": "This is my first post!",
       "image": "https://picsum.photos/600/400?random=2",
-      "likes": 21
+      "likes": 24,
+      "createdAt": "2021-08-28T23:15:20.470Z"
     },
     {
-      "id": "b91d",
+      "id": "3696",
       "userId": 1,
-      "content": "                             hello\n                           ",
-      "image": "https://picsum.photos/600/400?random=443",
-      "likes": 1
+      "content": "hello                             ",
+      "image": "https://picsum.photos/600/400?random=649",
+      "likes": 0,
+      "createdAt": "2025-06-01T18:04:52.199Z"
     },
     {
-      "id": "c865",
-      "userId": 1,
-      "content": "                                 hi\n                       ",
-      "image": "https://picsum.photos/600/400?random=952",
-      "likes": 0
+      "id": "c939",
+      "userId": 2,
+      "content": "                               hello\n                         ",
+      "image": "https://picsum.photos/600/400?random=491",
+      "likes": 0,
+      "createdAt": "2025-06-01T18:06:08.153Z"
     },
     {
-      "id": "93e9",
-      "userId": 1,
-      "content": "          hey                         ",
-      "image": "https://picsum.photos/600/400?random=507",
-      "likes": 0
-    },
-    {
-      "id": "42ff",
-      "userId": 1,
-      "content": "                                                        ",
-      "image": "https://picsum.photos/600/400?random=986",
-      "likes": 0
-    },
-    {
-      "id": "2216",
-      "userId": 1,
-      "content": "                      hey                                  ",
-      "image": "https://picsum.photos/600/400?random=676",
-      "likes": 0
-    },
-    {
-      "id": "3fdd",
-      "userId": 1,
-      "content": "dd\n                        ",
-      "image": "https://picsum.photos/600/400?random=834",
-      "likes": 0
+      "id": "8f6a",
+      "userId": 2,
+      "content": "                             hi\n                           ",
+      "image": "https://picsum.photos/600/400?random=943",
+      "likes": 0,
+      "createdAt": "2025-06-01T18:23:53.753Z"
     }
   ],
   "comments": [
@@ -92,19 +77,22 @@
       "id": "1",
       "postId": 1,
       "userId": 1,
-      "content": "This is a sample comment!"
+      "content": "This is a sample comment!",
+      "createdAt": "2022-05-28T23:15:20.470Z"
     },
     {
       "id": "2",
       "postId": 1,
       "userId": 2,
-      "content": "This is a sample comment!"
+      "content": "This is a sample comment!",
+      "createdAt": "2023-05-28T23:15:20.470Z"
     },
     {
       "id": "3",
       "postId": 2,
       "userId": 3,
-      "content": "This is a sample comment!"
+      "content": "This is a sample comment!",
+      "createdAt": "2024-05-28T23:15:20.470Z"
     },
     {
       "id": "3801",
