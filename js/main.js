@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
     else if (window.location.pathname.includes('home.html')) {
         displayPosts(currentUser);
         handleAddPostForm(currentUser);
+        setupGeminiChat(currentUser);
     }
 
     setupSearchFocus();
@@ -386,3 +387,110 @@ function handleAddPostForm(currentUser) {
 
     });
 }
+
+
+// Gemini API Configuration
+const GEMINI_API_KEY = "AIzaSyDlxdKs-nga_xCDidQjogucMWQe7N2r-58";
+const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
+
+
+// Chat with Gemini
+async function chatWithGemini(prompt) {
+
+    const response = await fetch(GEMINI_API_URL, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            contents: [{
+                parts: [{
+                    text: prompt
+                }]
+            }]
+        })
+    });
+    const data = await response.json();
+    return data.candidates[0].content.parts[0].text;
+}
+
+// Handle Gemini Chat Form Submission
+function setupGeminiChat(currentUser) {
+    const chatForm = document.getElementById('chatForm');
+    const chatMessages = document.getElementById('chatMessages');
+    const chatInput = document.getElementById('chatInput');
+
+    // Initial greeting from Gemini
+    addMessageToChat('Gemini', "Hello! I'm Gemini. How can I help you today?", true);
+
+    chatForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        const userMessage = chatInput.value.trim();
+        if (!userMessage) return;
+
+        // Add user message to chat
+        addMessageToChat(currentUser.name, userMessage, false);
+        chatInput.value = '';
+
+        // Show typing indicator
+        const typingIndicator = document.createElement('div');
+        typingIndicator.className = 'd-flex align-items-center mb-2';
+        typingIndicator.innerHTML = `
+            <img src="images/Gemini_Generated_Image.jfif" alt="avatar" class="rounded-circle me-2" 
+                style="width: 38px; height: 38px; object-fit: cover" />
+            <div class="p-3 rounded comment__input w-100 bg-grey">
+                <p class="fw-bold m-0">Gemini</p>
+                <p class="m-0 fs-7 p-2 rounded typing-indicator">
+                    <span class="dot">.</span>
+                    <span class="dot">.</span>
+                    <span class="dot">.</span>
+                </p>
+            </div>
+        `;
+        chatMessages.appendChild(typingIndicator);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+
+        // Get response from Gemini
+            const geminiResponse = await chatWithGemini(userMessage);
+
+            // Remove typing indicator
+            chatMessages.removeChild(typingIndicator);
+
+            // Add Gemini's response
+            addMessageToChat('Gemini', geminiResponse, true);
+    });
+}
+
+// Helper function to add messages to the chat
+function addMessageToChat(sender, message, isGemini) {
+    const chatMessages = document.getElementById('chatMessages');
+
+    const messageDiv = document.createElement('div');
+    messageDiv.className = 'd-flex align-items-center mb-2';
+
+    if (isGemini) {
+        messageDiv.innerHTML = `
+            <img src="images/Gemini_Generated_Image.jfif" alt="avatar" class="rounded-circle me-2" 
+                style="width: 38px; height: 38px; object-fit: cover" />
+            <div class="p-3 rounded comment__input w-100 bg-grey">
+                <p class="fw-bold m-0">${sender}</p>
+                <p class="m-0 fs-7 p-2 rounded">${message}</p>
+            </div>
+        `;
+    } else {
+        // For user messages
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        messageDiv.innerHTML = `
+            <div class="ms-auto" style="max-width: 80%">
+                <div class="px-2 rounded comment__input w-100 bg-primary text-white">
+                    <p class="m-0 fs-7 p-2 rounded">${message}</p>
+                </div>
+            </div>
+        `;
+    }
+
+    chatMessages.appendChild(messageDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
